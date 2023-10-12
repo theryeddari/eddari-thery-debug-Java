@@ -23,9 +23,11 @@ public class AnalyticsCounter {
 			}
 			else if (line.equals("rash")) {
 				rashCount++;
+				System.out.println("number of rash: " + rashCount);
 			}
 			else if (line.contains("dialated pupils")) {
 				pupilCount++;
+				System.out.println("number of dialated pupils: " + pupilCount);
 			}
 
 			line = reader.readLine();
