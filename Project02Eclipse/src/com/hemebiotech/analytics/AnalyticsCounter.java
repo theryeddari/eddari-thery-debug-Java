@@ -15,12 +15,12 @@ public class AnalyticsCounter {
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
-		int headCount = 0;
+		int headacheCount = 0;
 		while (line != null) {
 			System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
+				headacheCount++;
+				System.out.println("number of headaches: " + headacheCount);
 			}
 			else if (line.equals("rush")) {
 				rashCount++;
