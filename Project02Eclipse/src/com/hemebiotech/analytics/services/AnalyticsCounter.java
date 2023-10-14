@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 
 public class AnalyticsCounter {
@@ -31,6 +32,10 @@ public class AnalyticsCounter {
             symptomsCountMap.merge(symptom, 1, Integer::sum);
         }
         return symptomsCountMap;
+    }
+    public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+
+        return new TreeMap<>(symptoms);
     }
     public static void main(String[] args) throws Exception {
         // first get input
