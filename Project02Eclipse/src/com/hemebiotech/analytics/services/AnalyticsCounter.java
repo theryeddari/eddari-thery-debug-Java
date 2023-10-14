@@ -37,6 +37,9 @@ public class AnalyticsCounter {
 
         return new TreeMap<>(symptoms);
     }
+    public void writeSymptoms(Map<String, Integer> symptoms) {
+        symptomWriter.writeSymptoms(symptoms);
+    }
     public static void main(String[] args) throws Exception {
         // first get input
         try (BufferedReader reader = new BufferedReader(new FileReader("Project02Eclipse/symptoms.txt"))) {
