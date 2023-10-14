@@ -6,6 +6,7 @@ import com.hemebiotech.analytics.interfaces.ISymptomWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.List;
 
 
 public class AnalyticsCounter {
@@ -18,6 +19,9 @@ public class AnalyticsCounter {
     public AnalyticsCounter(ISymptomReader symptomReader, ISymptomWriter symptomWriter) {
         this.symptomReader = symptomReader;
         this.symptomWriter = symptomWriter;
+    }
+    public List<String> getSymptoms() {
+        return symptomReader.getSymptoms();
     }
     public static void main(String[] args) throws Exception {
         // first get input
