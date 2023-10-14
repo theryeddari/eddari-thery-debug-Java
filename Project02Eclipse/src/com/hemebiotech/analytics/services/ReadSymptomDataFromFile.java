@@ -10,28 +10,36 @@ import java.util.List;
 
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-    private final String filepath;
+    private final String filePath;
 
     /**
-     * @param filepath a full path to file with symptom
+     * Constructs a new ReadSymptomDataFromFile object.
+     *
+     * @param filePath a full path to the file with symptoms
      */
-    public ReadSymptomDataFromFile(String filepath) {
-        this.filepath = filepath;
+    public ReadSymptomDataFromFile(String filePath) {
+        this.filePath = filePath;
     }
 
+    /**
+     * Reads the symptoms from the file and returns a list of symptoms.
+     *
+     * @return a list of symptoms
+     * @throws IllegalStateException if there is an error accessing or reading the file
+     */
     @Override
     public List<String> getSymptoms() {
         ArrayList<String> result = new ArrayList<>();
 
-        if (filepath != null) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+        if (filePath != null) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
                 String line = reader.readLine();
                 while (line != null) {
                     result.add(line);
                     line = reader.readLine();
                 }
             } catch (IOException e) {
-                throw new IllegalStateException("Problème d'accès en écriture ou lecture");
+                throw new IllegalStateException("Error accessing or reading the file");
             }
         }
 
