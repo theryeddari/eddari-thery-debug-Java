@@ -6,7 +6,9 @@ import com.hemebiotech.analytics.interfaces.ISymptomWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class AnalyticsCounter {
@@ -22,6 +24,13 @@ public class AnalyticsCounter {
     }
     public List<String> getSymptoms() {
         return symptomReader.getSymptoms();
+    }
+    public Map<String, Integer> countSymptoms(List<String> symptoms) {
+        Map<String, Integer> symptomsCountMap = new HashMap<>();
+        for (String symptom : symptoms) {
+            symptomsCountMap.merge(symptom, 1, Integer::sum);
+        }
+        return symptomsCountMap;
     }
     public static void main(String[] args) throws Exception {
         // first get input
