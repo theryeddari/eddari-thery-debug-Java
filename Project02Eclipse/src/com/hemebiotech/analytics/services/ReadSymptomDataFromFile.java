@@ -21,7 +21,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
     @Override
     public List<String> getSymptoms() {
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
 
         if (filepath != null) {
             try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
@@ -31,7 +31,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
                     line = reader.readLine();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new IllegalStateException("Problème d'accès en écriture ou lecture");
             }
         }
 
