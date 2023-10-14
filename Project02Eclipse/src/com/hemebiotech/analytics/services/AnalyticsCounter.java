@@ -1,5 +1,8 @@
 package com.hemebiotech.analytics.services;
 
+import com.hemebiotech.analytics.interfaces.ISymptomReader;
+import com.hemebiotech.analytics.interfaces.ISymptomWriter;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -9,7 +12,13 @@ public class AnalyticsCounter {
     private static int headacheCount = 0;
     private static int rashCount = 0;
     private static int pupilCount = 0;
+    private final ISymptomReader symptomReader;
+    private final ISymptomWriter symptomWriter;
 
+    public AnalyticsCounter(ISymptomReader symptomReader, ISymptomWriter symptomWriter) {
+        this.symptomReader = symptomReader;
+        this.symptomWriter = symptomWriter;
+    }
     public static void main(String[] args) throws Exception {
         // first get input
         try (BufferedReader reader = new BufferedReader(new FileReader("Project02Eclipse/symptoms.txt"))) {
