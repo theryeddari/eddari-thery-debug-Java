@@ -21,7 +21,7 @@ public class Main {
      */
     public static void main(String[] args) {
         ISymptomReader symptomReader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
-        ISymptomWriter symptomWriter = new WriteSymptomDataToFile();
+        ISymptomWriter symptomWriter = new WriteSymptomDataToFile("result.out");
         AnalyticsCounter analyticsCounter = new AnalyticsCounter(symptomReader, symptomWriter);
 
         List<String> symptoms = analyticsCounter.getSymptoms();
