@@ -9,8 +9,16 @@ import com.hemebiotech.analytics.services.WriteSymptomDataToFile;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The main class that performs symptom analytics.
+ */
 public class Main {
 
+    /**
+     * The entry point of the program.
+     *
+     * @param args The command line arguments, not use.
+     */
     public static void main(String[] args) {
         ISymptomReader symptomReader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
         ISymptomWriter symptomWriter = new WriteSymptomDataToFile();
