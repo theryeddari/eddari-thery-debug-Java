@@ -25,10 +25,10 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
      * Reads the symptoms from the file and returns a list of symptoms.
      *
      * @return a list of symptoms
-     * @throws IllegalStateException if there is an error accessing or reading the file
+     * @throws IOException if there is an error accessing or reading the file
      */
     @Override
-    public List<String> getSymptoms() {
+    public List<String> getSymptoms() throws IOException {
         ArrayList<String> result = new ArrayList<>();
 
         if (filePath != null) {
@@ -39,7 +39,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
                     line = reader.readLine();
                 }
             } catch (IOException e) {
-                throw new IllegalStateException("Error accessing or reading the file");
+                throw new IOException();
             }
         }
 

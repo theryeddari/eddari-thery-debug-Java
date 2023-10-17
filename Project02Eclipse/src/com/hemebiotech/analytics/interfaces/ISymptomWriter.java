@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics.interfaces;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -12,5 +13,5 @@ public interface ISymptomWriter {
      *
      * @param symptoms The map of symptoms and their counts.
      */
-    void writeSymptoms(Map<String, Integer> symptoms);
+    void writeSymptoms(Map<String, Integer> symptoms) throws IOException;
 }

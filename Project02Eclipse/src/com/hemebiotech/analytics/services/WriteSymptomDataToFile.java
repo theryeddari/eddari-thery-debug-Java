@@ -26,8 +26,9 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
      * Writes the symptoms and their counts to a file.
      *
      * @param symptoms The map of symptoms and their counts.
+     * @throws IOException if there is an error accessing or reading the file
      */
-    public void writeSymptoms(Map<String, Integer> symptoms) {
+    public void writeSymptoms(Map<String, Integer> symptoms) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
                 String symptom = entry.getKey();
@@ -36,7 +37,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 writer.newLine();
             }
         } catch (IOException e) {
-            throw new IllegalStateException("An error occurred while accessing or writing the file");
+            throw new IOException();
         }
         System.out.println("The file has been created successfully :)");
     }
